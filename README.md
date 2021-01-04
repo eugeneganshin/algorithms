@@ -75,12 +75,12 @@ Two separate collections: O(a * b)
 
 ## Heurestics to ace the question:
 
-* [✅]Hash Maps are usually the answer to improve Time Complexity
-* [✅]If it's a sorted array, use Binary tree to achieve O(log N). Divide and Conquer - Divide a data setinto smaller chunks and then repeating a process with a subset of data. Binary search is a greatexample of this
-* [✅]Try Sorting your input
-* [✅]Hash tables and precomputed information (i.e. sorted) are some of the best ways to optimize yourcode
-* [✅]Look at the Time vs Space tradeoff. Sometimes storing extra state in memory can help the time.(Runtime)
-* [✅]If the interviewer is giving you advice/tips/hints. Follow them
-* [✅]Space time tradeoffs: Hastables usually solve this a lot of the times. You use more space, but youcan get a time optimization to the process. In programming, you often times can use up a little bitmore space to get faster time
+* Hash Maps are usually the answer to improve Time Complexity
+* If it's a sorted array, use Binary tree to achieve O(log N). Divide and Conquer - Divide a data setinto smaller chunks and then repeating a process with a subset of data. Binary search is a greatexample of this
+* Try Sorting your input
+* Hash tables and precomputed information (i.e. sorted) are some of the best ways to optimize yourcode
+* Look at the Time vs Space tradeoff. Sometimes storing extra state in memory can help the time.(Runtime)
+* If the interviewer is giving you advice/tips/hints. Follow them
+* Space time tradeoffs: Hastables usually solve this a lot of the times. You use more space, but youcan get a time optimization to the process. In programming, you often times can use up a little bitmore space to get faster time
 
 **And always remember**: Communicate your thought process as much as possible. Don’t worry aboutfinishing it fast. Every part of the interview matters.
