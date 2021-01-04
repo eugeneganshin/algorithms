@@ -41,3 +41,18 @@
 13. Test your code: Check for no params, 0, undefined, null, massive arrays, async code, etc... Ask13.the interviewer if we can make assumption about the code. Can you make the answer returnan error? Poke holes into your solution. Are you repeating yourself?
 14. Finally talk to the interviewer where you would improve the code. Does it work? Are there14.different approaches? Is it readable? What would you google to improve? How canperformance be improved? Possibly: Ask the interviewer what was the most interestingsolution you have seen to this problem
 15. If your interviewer is happy with the solution, the interview usually ends here. It is also15.common that the interviewer asks you extension questions, such as how you would handle theproblem if the whole input is too large to fit into memory, or if the input arrives as a stream.This is a common follow-up question at Google, where they care a lot about scale. The answeris usually a divide-and-conquer approach — perform distributed processing of the data and onlyread certain chunks of the input from disk into memory, write the output back to disk andcombine them later.
+
+[Interview example](https://www.youtube.com/watch?v=XKu_SEDAykw)
+
+
+# Heurestics to ace the question:
+
+[✅]Hash Maps are usually the answer to improve Time Complexity
+[✅]If it's a sorted array, use Binary tree to achieve O(log N). Divide and Conquer - Divide a data setinto smaller chunks and then repeating a process with a subset of data. Binary search is a greatexample of this
+[✅]Try Sorting your input
+[✅]Hash tables and precomputed information (i.e. sorted) are some of the best ways to optimize yourcode
+[✅]Look at the Time vs Space tradeoff. Sometimes storing extra state in memory can help the time.(Runtime)
+[✅]If the interviewer is giving you advice/tips/hints. Follow them
+[✅]Space time tradeoffs: Hastables usually solve this a lot of the times. You use more space, but youcan get a time optimization to the process. In programming, you often times can use up a little bitmore space to get faster time
+
+**And always remember**: Communicate your thought process as much as possible. Don’t worry aboutfinishing it fast. Every part of the interview matters.
