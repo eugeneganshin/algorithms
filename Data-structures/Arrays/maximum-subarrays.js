@@ -4,7 +4,7 @@ function maxSub(array) {
     let local_max = 0
     let global_max = 0
 
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < len; i++) {
         local_max = Math.max(array[i], array[i] + local_max)
         if (local_max > global_max) {
             global_max = local_max
