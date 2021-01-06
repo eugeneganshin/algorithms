@@ -4,16 +4,19 @@ class CustomArray {
         this.data = {}
     }
 
+    // O(1)
     get(index) {
         return this.data
     }
 
+    // O(1)
     push(item) {
         this.data[this.length] = item
         this.length++
         return this.length
     }
 
+    // O(n)
     pop() {
         const lastItem = this.data[this.length - 1]
         delete this.data[this.length - 1]
@@ -21,7 +24,8 @@ class CustomArray {
         return lastItem
     }
 
-    delete(index) {
+    // O(n)
+    delete(index) { 
         const item = this.data[index]
         this._shiftItems(index)
     }
