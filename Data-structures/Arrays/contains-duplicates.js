@@ -1,23 +1,18 @@
+// O(n)
 function findDuplicates(nums) {
     let hash = {}
-    nums.forEach(el => {
-        if (!hash[el]) {
-            hash[el] = true
+
+    for (let i = 0; i < nums.length; i++) {
+        if (!hash[nums[i]]) {
+            hash[nums[i]] = true
         } else {
             return true
         }
-    });
+    }
 
     return false
 }
 
-console.log(findDuplicates([0,4,5,3,0,6]))
 
+console.log(findDuplicates([0,4,5,3,1,6]))
 
-// nums.forEach(el => {
-//     if (!hash[el]) {
-//         hash[el] = true
-//     } else {
-//         return true
-//     }
-// });

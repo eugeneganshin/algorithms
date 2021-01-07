@@ -25,6 +25,8 @@ function twoSum (nums, target) {
 function twoSumFast(nums,target) {
     const comp = []
 
+    // push compliment to array
+    // if compliment found then we found the result
     for (const val of nums) {
         if (comp.find(el => el === val) !== comp[nums.length - 1]) return true
         comp.push(target - val)

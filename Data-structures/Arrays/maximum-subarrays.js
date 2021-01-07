@@ -1,17 +1,18 @@
-// Kadanet's Algorithm
-function maxSub(array) {
-    let len = array.length
-    let local_max = 0
-    let global_max = 0
+// // Kadanet's Algorithm
+function maxSub(nums) {
+    // use math.max 
+    // the trick is to find max of local_sub and local_sub + next iterator
+    let local_sub = 0
+    let global_sub = 0
 
-    for (let i = 0; i < len; i++) {
-        local_max = Math.max(array[i], array[i] + local_max)
-        if (local_max > global_max) {
-            global_max = local_max
+    for (let i = 0; i < nums.length; i++) {
+        local_sub = Math.max(nums[i], local_sub + nums[i])
+        if (local_sub>global_sub) {
+            global_sub = local_sub
         }
     }
 
-    return global_max
+    return global_sub
 }
 
 // console.log(maxSub([4,-1]))
