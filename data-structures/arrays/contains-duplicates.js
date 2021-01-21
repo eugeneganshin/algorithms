@@ -15,4 +15,3 @@ function findDuplicates(nums) {
 
 
 console.log(findDuplicates([0,4,5,3,1,6]))
-
