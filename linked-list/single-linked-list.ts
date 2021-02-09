@@ -1,4 +1,4 @@
-class LLNode {
+export class LLNode {
   value: number;
   next: null | LLNode;
 
@@ -8,7 +8,7 @@ class LLNode {
   }
 }
 
-class LinkedList {
+export class LinkedList {
   head: LLNode;
   tail: LLNode | null;
   length: number;
@@ -73,10 +73,6 @@ class LinkedList {
     this.length--;
   }
 
-  /**
-   * ! 1 -> 2 -> null
-   * * 1L
-   */
   public reverseLinkedList(): void {
     let prev = null;
     let curr = this.head;
