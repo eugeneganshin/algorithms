@@ -1,6 +1,6 @@
-export class LLNode {
+class _Node {
   value: number;
-  next: null | LLNode;
+  next: _Node | null;
 
   constructor(value: number) {
     this.value = value;
@@ -8,116 +8,88 @@ export class LLNode {
   }
 }
 
-export class LinkedList {
-  head: LLNode;
-  tail: LLNode | null;
-  length: number;
+class SingleLinkedList {
+  head: _Node;
+  tail: _Node | null = null;
+  length: number = 0;
 
   constructor(value: number) {
-    this.head = new LLNode(value);
+    this.head = new _Node(value);
     this.tail = this.head;
-    this.length = 0;
+    this.length++;
   }
 
   append(value: number): void {
-    const newNode = new LLNode(value);
-
-    this.tail.next = newNode;
-    this.tail = this.tail.next;
+    let node = new _Node(value);
+    // here `head.next` is overwritten
+    this.tail.next = node;
+    // here `tail` break the reference to `head` so `head` is not overwritten
+    this.tail = node;
     this.length++;
   }
 
   prepend(value: number): void {
-    const newNode = new LLNode(value);
-    newNode.next = this.head;
-    this.head = newNode;
+    let node = new _Node(value);
+    node.next = this.head;
+    this.head = node;
     this.length++;
   }
 
   insert(index: number, value: number): void {
-    if (index === 0) {
+    if (index < 0) {
+      throw new Error("Index must be positive integer");
+    } else if (index === 0) {
       this.prepend(value);
-      this.length++;
       return;
-    }
-
-    if (index >= this.length) {
+    } else if (index >= this.length) {
       this.append(value);
-      this.length++;
       return;
     }
 
-    const newNode = new LLNode(value);
-    const prev = this.traverseToIndex(index - 1);
-    const temp = prev.next;
-    prev.next = newNode;
-    newNode.next = temp;
+    let i = this.traverse(index - 1);
+    let node = new _Node(value);
+    let temp = i.next;
+    i.next = node;
+    node.next = temp;
     this.length++;
   }
 
-  remove(index: number): void {
-    if (index === 0) {
-      this.head = this.head.next;
-      this.length--;
-    }
+  delete() {}
 
-    if (index >= this.length) {
-      const prev = this.traverseToIndex(this.length - 1);
-      prev.next = null;
-      this.length--;
-    }
-
-    const prev = this.traverseToIndex(index - 1);
-    const deleted = prev.next;
-    prev.next = deleted.next;
-    this.length--;
+  lookup(index: number): _Node {
+    return this.traverse(index)
   }
 
-  public reverseLinkedList(): void {
-    let prev = null;
-    let curr = this.head;
-
-    while (curr) {
-      const temp = curr.next; // store the next of a head
-      curr.next = prev; // reverse the current
-      prev = curr; // one step to the right for prev
-      curr = temp; // one step to the right for current
+  print(): void {
+    let array = [];
+    let current = this.head;
+    while (current !== null) {
+      array.push(current.value);
+      current = current.next;
     }
 
-    this.head = prev;
+    console.log(array);
   }
 
-  public printValues() {
-    console.log(this.values);
-  }
-
-  public get values(): number[] {
-    const array: number[] = [];
-    let currentNode = this.head;
-
-    while (currentNode !== null) {
-      array.push(currentNode.value);
-      currentNode = currentNode.next;
+  private traverse(index: number) {
+    let current = this.head;
+    while (index !== 0) {
+      current = current.next;
+      index--;
     }
 
-    return array;
+    return current;
   }
 
-  private traverseToIndex(index: number): LLNode {
-    let counter = 0;
-    let currentNode = this.head;
-    while (counter !== index) {
-      currentNode = currentNode.next;
-      counter++;
-    }
-
-    return currentNode;
-  }
+  // try to implement appendSorted
 }
 
-const list = new LinkedList(0);
-list.append(1);
+let list = new SingleLinkedList(1);
 list.append(2);
-list.printValues();
-list.reverseLinkedList();
-list.printValues();
+list.prepend(0);
+list.insert(1, 3);
+list.insert(0, 5);
+// console.log(list);
+
+// console.log(list.traverse(2))
+list.print();
