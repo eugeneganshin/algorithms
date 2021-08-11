@@ -84,3 +84,6 @@ Two separate collections: O(a * b)
 * Space time tradeoffs: Hastables usually solve this a lot of the times. You use more space, but youcan get a time optimization to the process. In programming, you often times can use up a little bitmore space to get faster time
 
 **And always remember**: Communicate your thought process as much as possible. Don’t worry aboutfinishing it fast. Every part of the interview matters.
+
+test
+
